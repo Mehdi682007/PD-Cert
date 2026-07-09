@@ -1,3 +1,5 @@
+<div align="center">
+
 # PD-Cert
 
 ![Shell Script](https://img.shields.io/badge/Shell-Bash-green)
@@ -6,9 +8,13 @@
 ![DNS](https://img.shields.io/badge/DNS-Cloudflare-yellow)
 ![License](https://img.shields.io/badge/License-MIT-lightgrey)
 
-**PD-Cert** is a simple Bash-based SSL certificate installer for servers using **Let's Encrypt** with **Cloudflare DNS Challenge**.
+**Let's Encrypt SSL installer using Cloudflare DNS Challenge**
 
-It helps you issue, renew, delete, and reissue SSL certificates without manually configuring Certbot and Cloudflare DNS plugins.
+<br>
+
+[🇬🇧 English](#-english) | [🇮🇷 فارسی](#-راهنمای-فارسی)
+
+</div>
 
 ---
 
@@ -16,15 +22,11 @@ It helps you issue, renew, delete, and reissue SSL certificates without manually
 
 ### Overview
 
-PD-Cert automates the process of getting SSL certificates using the Cloudflare DNS-01 challenge method.
+**PD-Cert** is a simple Bash-based SSL certificate installer for servers using **Let's Encrypt** with **Cloudflare DNS Challenge**.
 
-This is especially useful when:
+It helps you issue, renew, delete, and reissue SSL certificates without manually configuring Certbot and the Cloudflare DNS plugin.
 
-* Your server is behind Cloudflare.
-* Port `80` is closed or unavailable.
-* You want to issue a wildcard certificate.
-* You want a simple interactive installer.
-* You want to delete and reissue existing certificates.
+This tool is useful when your domain is managed by Cloudflare and you want a fast, interactive, and reliable way to generate SSL certificates on your server.
 
 ---
 
@@ -53,7 +55,15 @@ Debian
 Debian-based Linux distributions
 ```
 
-The script uses `apt`, so it is not currently compatible with CentOS, AlmaLinux, Rocky Linux, Fedora, or Arch Linux.
+The script uses `apt`, so it is not currently compatible with:
+
+```text
+CentOS
+AlmaLinux
+Rocky Linux
+Fedora
+Arch Linux
+```
 
 ---
 
@@ -84,7 +94,7 @@ Recommended resource scope:
 Include → Specific zone → your-domain.com
 ```
 
-Using a limited API Token is safer than using the Global API Key.
+Using a limited API Token is safer than using the Cloudflare Global API Key.
 
 ---
 
@@ -100,7 +110,7 @@ The script will guide you through the process interactively.
 
 ---
 
-### Certificate Options
+### Certificate Types
 
 The script supports three certificate types:
 
@@ -247,7 +257,7 @@ For better security:
 * Use a limited API Token.
 * Restrict the token to only the required domain.
 * Do not share your token publicly.
-* Do not commit `.ini`, `.env`, token, or private key files to GitHub.
+* Do not commit `.ini`, `.env`, token, private key, or certificate files to GitHub.
 
 ---
 
@@ -271,6 +281,12 @@ sudo certbot certificates
 ```
 
 Then make sure the certificate name matches your domain.
+
+Sometimes the certificate name may look like this:
+
+```text
+example.com-0001
+```
 
 #### DNS Challenge Failed
 
@@ -385,9 +401,9 @@ This project is released under the MIT License.
 
 <br>
 
-# 🇮🇷 راهنمای فارسی
+## 🇮🇷 راهنمای فارسی
 
-## معرفی
+### معرفی
 
 **PD-Cert** یک اسکریپت Bash ساده برای دریافت، حذف، تمدید و صدور مجدد گواهی SSL با استفاده از **Let's Encrypt** و **Cloudflare DNS Challenge** است.
 
@@ -395,7 +411,7 @@ This project is released under the MIT License.
 
 ---
 
-## کاربرد
+### کاربرد
 
 این اسکریپت زمانی کاربرد دارد که:
 
@@ -407,7 +423,7 @@ This project is released under the MIT License.
 
 ---
 
-## امکانات
+### امکانات
 
 * 🚀 دریافت گواهی SSL با Let's Encrypt
 * 🌍 پشتیبانی از دامنه اصلی و `www`
@@ -422,7 +438,7 @@ This project is released under the MIT License.
 
 ---
 
-## سیستم‌عامل‌های پشتیبانی‌شده
+### سیستم‌عامل‌های پشتیبانی‌شده
 
 در حال حاضر این اسکریپت از سیستم‌های زیر پشتیبانی می‌کند:
 
@@ -432,11 +448,19 @@ Debian
 توزیع‌های مبتنی بر Debian
 ```
 
-چون اسکریپت از `apt` استفاده می‌کند، فعلاً برای CentOS، AlmaLinux، Rocky Linux، Fedora یا Arch Linux مناسب نیست.
+چون اسکریپت از `apt` استفاده می‌کند، فعلاً برای سیستم‌های زیر مناسب نیست:
+
+```text
+CentOS
+AlmaLinux
+Rocky Linux
+Fedora
+Arch Linux
+```
 
 ---
 
-## پیش‌نیازها
+### پیش‌نیازها
 
 قبل از اجرا مطمئن شوید:
 
@@ -448,7 +472,7 @@ Debian
 
 ---
 
-## دسترسی‌های موردنیاز Cloudflare API Token
+### دسترسی‌های موردنیاز Cloudflare API Token
 
 در Cloudflare یک API Token با دسترسی‌های زیر بسازید:
 
@@ -467,7 +491,7 @@ Include → Specific zone → your-domain.com
 
 ---
 
-## نصب تک‌دستوری
+### نصب تک‌دستوری
 
 برای اجرای اسکریپت روی سرور:
 
@@ -479,7 +503,7 @@ bash <(curl -Ls https://raw.githubusercontent.com/Mehdi682007/PD-Cert/main/insta
 
 ---
 
-## نوع گواهی‌ها
+### نوع گواهی‌ها
 
 اسکریپت از سه حالت پشتیبانی می‌کند:
 
@@ -506,7 +530,7 @@ app.example.com
 
 ---
 
-## گزینه‌های اصلی اسکریپت
+### گزینه‌های اصلی اسکریپت
 
 در ابتدای اجرا، اسکریپت این گزینه‌ها را نمایش می‌دهد:
 
@@ -520,7 +544,7 @@ app.example.com
 
 ---
 
-## مسیر فایل‌های گواهی
+### مسیر فایل‌های گواهی
 
 بعد از صدور موفق گواهی، فایل‌ها در مسیر زیر قرار می‌گیرند:
 
@@ -545,7 +569,7 @@ sudo systemctl reload nginx
 
 ---
 
-## نمونه کانفیگ Nginx
+### نمونه کانفیگ Nginx
 
 ```nginx
 server {
@@ -562,7 +586,7 @@ server {
 
 ---
 
-## تنظیم SSL در Cloudflare
+### تنظیم SSL در Cloudflare
 
 اگر سایت شما پشت Cloudflare است، در بخش SSL/TLS حالت زیر را انتخاب کنید:
 
@@ -580,7 +604,7 @@ Flexible
 
 ---
 
-## تمدید خودکار
+### تمدید خودکار
 
 Certbot معمولاً برای تمدید خودکار گواهی‌ها timer ایجاد می‌کند.
 
@@ -604,7 +628,7 @@ systemctl status certbot.timer
 
 ---
 
-## نکات امنیتی
+### نکات امنیتی
 
 Cloudflare API Token در این فایل ذخیره می‌شود:
 
@@ -630,9 +654,9 @@ Cloudflare API Token در این فایل ذخیره می‌شود:
 
 ---
 
-## خطاهای رایج
+### خطاهای رایج
 
-### خطای API Token
+#### خطای API Token
 
 مطمئن شوید Token این دسترسی‌ها را دارد:
 
@@ -641,7 +665,7 @@ Zone → DNS → Edit
 Zone → Zone → Read
 ```
 
-### خطا هنگام حذف گواهی
+#### خطا هنگام حذف گواهی
 
 اگر حذف گواهی انجام نشد، نام دقیق certificate را بررسی کنید:
 
@@ -655,11 +679,11 @@ sudo certbot certificates
 example.com-0001
 ```
 
-### خطای DNS Challenge
+#### خطای DNS Challenge
 
 مطمئن شوید دامنه داخل Cloudflare فعال است و API Token به zone صحیح دسترسی دارد.
 
-### خطا هنگام reload کردن Nginx
+#### خطا هنگام reload کردن Nginx
 
 ابتدا کانفیگ Nginx را تست کنید:
 
@@ -671,7 +695,7 @@ sudo nginx -t
 
 ---
 
-## حذف گواهی
+### حذف گواهی
 
 برای حذف از طریق اسکریپت، آن را اجرا کنید و گزینه زیر را انتخاب کنید:
 
@@ -687,7 +711,7 @@ sudo certbot delete --cert-name your-domain.com
 
 ---
 
-## ساختار پیشنهادی پروژه
+### ساختار پیشنهادی پروژه
 
 ساختار پیشنهادی repository:
 
@@ -701,7 +725,7 @@ PD-Cert/
 
 ---
 
-## فایل پیشنهادی `.gitignore`
+### فایل پیشنهادی `.gitignore`
 
 ```gitignore
 # Secrets
@@ -726,7 +750,7 @@ Thumbs.db
 
 ---
 
-## هشدار
+### هشدار
 
 این اسکریپت روی سرور شما package نصب می‌کند و فایل‌های مربوط به SSL را تغییر می‌دهد. قبل از اجرا روی سرور production، محتوای اسکریپت را بررسی کنید.
 
@@ -744,7 +768,7 @@ bash <(curl -Ls https://raw.githubusercontent.com/Mehdi682007/PD-Cert/main/insta
 
 ---
 
-## مشارکت
+### مشارکت
 
 مشارکت در این پروژه آزاد است.
 
@@ -758,6 +782,6 @@ bash <(curl -Ls https://raw.githubusercontent.com/Mehdi682007/PD-Cert/main/insta
 
 ---
 
-## لایسنس
+### لایسنس
 
 این پروژه تحت لایسنس MIT منتشر می‌شود.
